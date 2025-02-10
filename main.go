@@ -52,7 +52,7 @@ func processSheet(f *excelize.File, sheetName string, priceProfileID string, bui
 
 		// Write provider DIA/BroadBand row
 		if err := providerWriter.Write([]string{
-			cuid.New(), currentTime, currentTime, "PhibeeTelecom", "f", "{GigabitEthernet}", "{31}", buildingID, priceProfileID,
+			cuid.New(), currentTime, currentTime, "PhibeeTelecom", "f", "{GigabitEthernet}", "{30}", buildingID, priceProfileID,
 		}); err != nil {
 			return fmt.Errorf("failed to write provider row: %v", err)
 		}
@@ -64,14 +64,14 @@ func processSheet(f *excelize.File, sheetName string, priceProfileID string, bui
 func main() {
 	// Price Profile IDs
 	priceProfileIDs := []string{
-		"cm6ujqa2j0000pskaog8fplti",
+		"cm6ytex7r0000c4ka7rpd50a2",
 	}
 
 	city := "France"
 
 	// List of Excel files to process
 	excelFiles := []string{
-		fmt.Sprintf("Buildings.xlsx"),
+		fmt.Sprintf("Buildings_Broadband.xlsx"),
 		// Add more templates here and replace $city dynamically
 	}
 

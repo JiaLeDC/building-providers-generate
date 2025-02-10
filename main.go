@@ -52,7 +52,7 @@ func processSheet(f *excelize.File, sheetName string, priceProfileID string, bui
 
 		// Write provider DIA/BroadBand row
 		if err := providerWriter.Write([]string{
-			cuid.New(), currentTime, currentTime, "PhibeeTelecom", "f", "{GigabitEthernet}", "{30}", buildingID, priceProfileID,
+			cuid.New(), currentTime, currentTime, "f", "PhibeeTelecom", "{GigabitEthernet}", "{30}", buildingID, priceProfileID,
 		}); err != nil {
 			return fmt.Errorf("failed to write provider row: %v", err)
 		}
@@ -103,7 +103,7 @@ func main() {
 	defer providerWriter.Flush()
 
 	// Write provider CSV header
-	if err := providerWriter.Write([]string{"id", "createTime", "updateTime", "provider", "systemManaged", "interfaceTypes", "ipv4PrefixLengths", "buildingId", "priceProfileId"}); err != nil {
+	if err := providerWriter.Write([]string{"id", "createTime", "updateTime", "systemManaged", "provider", "interfaceTypes", "ipv4PrefixLengths", "buildingId", "priceProfileId"}); err != nil {
 		slog.Error("Failed to write provider CSV header", err)
 		return
 	}
